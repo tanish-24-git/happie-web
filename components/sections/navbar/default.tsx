@@ -43,7 +43,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <img src="/logo.png" alt="Happie Logo" className="size-12 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all group-hover:scale-110" />,
+  logo = <img src="/logo.png" alt="Happie Logo" className="size-22 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all group-hover:scale-110" />,
   name = "Happie",
   homeUrl = siteConfig.url,
   mobileLinks = [

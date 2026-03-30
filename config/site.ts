@@ -7,9 +7,9 @@ export const siteConfig = {
   description:
     "Hardware-Aware Performance Inference Engine. Local-first AI inference platform with hardware-aware optimization.",
   links: {
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/tanish-jagtap/",
     github: "https://github.com/tanish-24-git/Happie.git",
-    email: "mailto:hello@happie.ai",
+    email: "mailto:tanishjagtap91@gmail.com",
   },
 };
 
