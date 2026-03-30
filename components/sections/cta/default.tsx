@@ -23,7 +23,7 @@ interface CTAProps {
 }
 
 export default function CTA({
-  title = "Start building",
+  title = "Start exploring your local AI",
   buttons = [
     {
       href: siteConfig.getStartedUrl,

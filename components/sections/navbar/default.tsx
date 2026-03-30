@@ -1,3 +1,5 @@
+"use client";
+
 import { type VariantProps } from "class-variance-authority";
 import { Menu } from "lucide-react";
 import { ReactNode } from "react";
@@ -42,18 +44,22 @@ interface NavbarProps {
 
 export default function Navbar({
   logo = <LaunchUI />,
-  name = "Launch UI",
+  name = "Happie",
   homeUrl = siteConfig.url,
   mobileLinks = [
-    { text: "Getting Started", href: siteConfig.url },
-    { text: "Components", href: siteConfig.url },
+    { text: "Getting Started", href: siteConfig.getStartedUrl },
     { text: "Documentation", href: siteConfig.url },
   ],
   actions = [
-    { text: "Sign in", href: siteConfig.url, isButton: false },
+    {
+      text: "Download (Coming Soon)",
+      href: "#",
+      isButton: true,
+      variant: "outline",
+    },
     {
       text: "Get Started",
-      href: siteConfig.url,
+      href: siteConfig.getStartedUrl,
       isButton: true,
       variant: "default",
     },
@@ -75,7 +81,21 @@ export default function Navbar({
               {logo}
               {name}
             </a>
-            {showNavigation && (customNavigation || <Navigation />)}
+            {showNavigation && (customNavigation || 
+              <Navigation 
+                menuItems={[
+                  {
+                    title: "Getting started",
+                    content: "default",
+                  },
+                  {
+                    title: "Documentation",
+                    isLink: true,
+                    href: siteConfig.url,
+                  },
+                ]}
+              />
+            )}
           </NavbarLeft>
           <NavbarRight>
             {actions.map((action, index) =>

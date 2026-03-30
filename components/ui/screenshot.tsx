@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 interface ScreenshotProps {
   srcLight: string;
   srcDark?: string;
+  srcHover?: string;
   alt: string;
   width: number;
   height: number;
@@ -18,6 +19,7 @@ interface ScreenshotProps {
 export default function Screenshot({
   srcLight,
   srcDark,
+  srcHover,
   alt,
   width,
   height,
@@ -25,13 +27,15 @@ export default function Screenshot({
 }: ScreenshotProps) {
   const { resolvedTheme } = useTheme();
   const [src, setSrc] = useState<string | null>(null);
+  const [baseSrc, setBaseSrc] = useState<string | null>(null);
 
   useEffect(() => {
+    let resolved = srcLight;
     if (resolvedTheme) {
-      setSrc(resolvedTheme === "light" ? srcLight : srcDark || srcLight);
-    } else {
-      setSrc(srcLight);
+      resolved = resolvedTheme === "light" ? srcLight : srcDark || srcLight;
     }
+    setBaseSrc(resolved);
+    setSrc(resolved);
   }, [resolvedTheme, srcLight, srcDark]);
 
   if (!src) {
@@ -45,12 +49,18 @@ export default function Screenshot({
   }
 
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-    />
+    <div
+      onMouseEnter={() => srcHover && setSrc(srcHover)}
+      onMouseLeave={() => setSrc(baseSrc)}
+      className="relative w-full h-full cursor-pointer transition-all duration-300"
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={cn("transition-opacity duration-300", className)}
+      />
+    </div>
   );
 }

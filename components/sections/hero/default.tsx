@@ -1,5 +1,7 @@
+"use client";
+
 import { type VariantProps } from "class-variance-authority";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, Download } from "lucide-react";
 import { ReactNode } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -10,7 +12,6 @@ import { Badge } from "../../ui/badge";
 import { Button, buttonVariants } from "../../ui/button";
 import Glow from "../../ui/glow";
 import { Mockup, MockupFrame } from "../../ui/mockup";
-import Screenshot from "../../ui/screenshot";
 import { Section } from "../../ui/section";
 
 interface HeroButtonProps {
@@ -19,6 +20,7 @@ interface HeroButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 interface HeroProps {
@@ -31,25 +33,68 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Give your big idea the design it deserves",
-  description = "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+  title = "Happie - AI Inference Engine",
+  description = "Local-first AI inference platform with hardware-aware optimization. Run models dynamically across your CPU and GPU.",
   mockup = (
-    <Screenshot
-      srcLight="/dashboard-light.png"
-      srcDark="/dashboard-dark.png"
-      alt="Launch UI app screenshot"
-      width={1248}
-      height={765}
-      className="w-full"
-    />
+    <div 
+      className="group relative sm:px-24 mx-auto w-full max-w-7xl mt-12 sm:mt-16 pb-32 sm:pb-48 [mask-image:linear-gradient(to_bottom,black_40%,transparent_90%)]"
+    >
+      {/* Left card */}
+      <div className="relative left-[-20%] z-10 h-[24px] rotate-[-24deg] skew-y-12 scale-110 transition-all delay-200 duration-700 ease-in-out group-hover:left-[-28%] group-hover:rotate-[-12deg] group-hover:skew-y-6">
+        <MockupFrame className="animate-appear opacity-0 delay-500 bg-transparent p-2" size="small">
+          <Mockup type="responsive" className="w-full rounded-md border-0 shadow-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/screen-settings.png"
+              alt="Happie Settings"
+              width={1248}
+              height={765}
+              className="block w-full"
+            />
+          </Mockup>
+        </MockupFrame>
+      </div>
+
+      {/* Center card */}
+      <div className="relative z-10 h-[24px] rotate-[-24deg] skew-y-12 scale-110 transition-all delay-200 duration-700 ease-in-out group-hover:rotate-[-12deg] group-hover:skew-y-6">
+        <MockupFrame className="animate-appear opacity-0 delay-1000 bg-transparent p-2" size="small">
+          <Mockup type="responsive" className="w-full rounded-md border-0 shadow-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/screen-dashboard.png"
+              alt="Happie Dashboard"
+              width={1248}
+              height={765}
+              className="block w-full"
+            />
+          </Mockup>
+        </MockupFrame>
+      </div>
+
+      {/* Right card */}
+      <div className="relative left-[28%] z-10 rotate-[-24deg] skew-y-12 scale-110 transition-all delay-200 duration-700 ease-in-out group-hover:left-[44%] group-hover:rotate-[-12deg] group-hover:skew-y-6">
+        <MockupFrame className="animate-appear opacity-0 delay-1500 bg-transparent p-2" size="small">
+          <Mockup type="responsive" className="w-full rounded-md border-0 shadow-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/screen-model.png"
+              alt="Happie Model Comparison"
+              width={1248}
+              height={765}
+              className="block w-full"
+            />
+          </Mockup>
+        </MockupFrame>
+      </div>
+    </div>
   ),
   badge = (
     <Badge variant="outline" className="animate-appear">
       <span className="text-muted-foreground">
-        New version of Launch UI is out!
+        Clone the repository now!
       </span>
       <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
-        Get started
+        Github
         <ArrowRightIcon className="size-3" />
       </a>
     </Badge>
@@ -61,9 +106,19 @@ export default function Hero({
       variant: "default",
     },
     {
+      href: "#",
+      text: "Download (Coming Soon)",
+      variant: "outline",
+      icon: <Download className="mr-2 size-4" />,
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        alert("Coming soon");
+      },
+    },
+    {
       href: siteConfig.links.github,
       text: "Github",
-      variant: "glow",
+      variant: "outline",
       icon: <Github className="mr-2 size-4" />,
     },
   ],
@@ -94,7 +149,7 @@ export default function Hero({
                   size="lg"
                   asChild
                 >
-                  <a href={button.href}>
+                  <a href={button.href} onClick={button.onClick}>
                     {button.icon}
                     {button.text}
                     {button.iconRight}
@@ -105,21 +160,8 @@ export default function Hero({
           )}
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame
-                className="animate-appear opacity-0 delay-700"
-                size="small"
-              >
-                <Mockup
-                  type="responsive"
-                  className="bg-background/90 w-full rounded-xl border-0"
-                >
-                  {mockup}
-                </Mockup>
-              </MockupFrame>
-              <Glow
-                variant="top"
-                className="animate-appear-zoom opacity-0 delay-1000"
-              />
+              {mockup}
+
             </div>
           )}
         </div>

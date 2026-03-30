@@ -99,25 +99,24 @@ export default function Navigation({
     },
   ],
   logo = <LaunchUI />,
-  logoTitle = "Launch UI",
-  logoDescription = "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
+  logoTitle = "Happie",
+  logoDescription = "Hardware-Aware Performance Inference Engine. Local-first AI inference platform with hardware-aware optimization.",
   logoHref = siteConfig.url,
   introItems = [
     {
-      title: "Introduction",
-      href: siteConfig.url,
-      description:
-        "Re-usable components built using Radix UI and Tailwind CSS.",
+      title: "Prerequisites",
+      href: siteConfig.getStartedUrl,
+      description: "Ensure Docker and GPU drivers (NVIDIA/AMD) are installed.",
     },
     {
-      title: "Installation",
-      href: siteConfig.url,
-      description: "How to install dependencies and structure your app.",
+      title: "Deployment",
+      href: siteConfig.getStartedUrl,
+      description: "Quick installation using our automated setup script.",
     },
     {
-      title: "Typography",
-      href: siteConfig.url,
-      description: "Styles for headings, paragraphs, lists...etc",
+      title: "Model Management",
+      href: siteConfig.getStartedUrl,
+      description: "Download models from HuggingFace and run locally.",
     },
   ],
 }: NavigationProps) {

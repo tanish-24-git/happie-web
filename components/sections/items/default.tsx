@@ -3,10 +3,8 @@ import {
   EclipseIcon,
   FastForwardIcon,
   LanguagesIcon,
-  MonitorSmartphoneIcon,
   RocketIcon,
   ScanFaceIcon,
-  SquarePenIcon,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -26,50 +24,38 @@ interface ItemsProps {
 }
 
 export default function Items({
-  title = "Everything you need. Nothing you don't.",
+  title = "Core Features",
   items = [
     {
-      title: "Accessibility first",
-      description: "Fully WCAG 2.0 compliant, made with best a11y practices",
+      title: "Hardware Detection",
+      description: "Automatic CPU, RAM, and GPU detection for optimal performance.",
       icon: <ScanFaceIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Responsive design",
-      description: "Looks and works great on any device and screen size",
-      icon: <MonitorSmartphoneIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Light and dark mode",
-      description:
-        "Seamless switching between color schemes, 6 themes included",
-      icon: <EclipseIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Easy to customize",
-      description: "Flexible options to match your product or brand",
-      icon: <BlocksIcon className="size-5 stroke-1" />,
-    },
-    {
-      title: "Top-level performance",
-      description: "Made for lightning-fast load times and smooth interactions",
+      title: "Dynamic Execution",
+      description: "Supports NVIDIA CUDA, AMD, Intel GPUs, and CPU-only gracefully.",
       icon: <FastForwardIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Production ready",
-      description: "Thoroughly tested and launch-prepared",
-      icon: <RocketIcon className="size-5 stroke-1" />,
+      title: "Model Management",
+      description:
+        "Pull models from HuggingFace, local GGUF, or use cloud API models.",
+      icon: <BlocksIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Made for localisation",
-      description:
-        "Easy to implement support for multiple languages and regions",
+      title: "Chat Modes",
+      description: "Single-model chat for minimal resources or full Comparison Mode.",
       icon: <LanguagesIcon className="size-5 stroke-1" />,
     },
     {
-      title: "CMS friendly",
-      description:
-        "Built to work with your any headless content management system",
-      icon: <SquarePenIcon className="size-5 stroke-1" />,
+      title: "Multimodal (Soon)",
+      description: "Image generation, Text-to-Speech (TTS), and Speech-to-Text (STT) coming soon.",
+      icon: <EclipseIcon className="size-5 stroke-1" />,
+    },
+    {
+      title: "Docker Ready",
+      description: "Easily run with a single setup script and docker-compose.",
+      icon: <RocketIcon className="size-5 stroke-1" />,
     },
   ],
   className,

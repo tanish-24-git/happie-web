@@ -1,30 +1,29 @@
 export const siteConfig = {
-  name: "Launch UI",
-  url: "https://launchuicomponents.com",
+  name: "Happie",
+  url: "https://github.com/tanish-24-git/Happie",
   getStartedUrl:
-    "https://launchuicomponents.com/docs/getting-started/introduction",
-  ogImage: "https://launchuicomponents.com/og.jpg",
+    "https://github.com/tanish-24-git/Happie.git",
+  ogImage: "https://github.com/tanish-24-git/Happie/og.jpg",
   description:
-    "Landing page components built with React, Shadcn/ui and Tailwind that will make your website feel premium.",
+    "Hardware-Aware Performance Inference Engine. Local-first AI inference platform with hardware-aware optimization.",
   links: {
-    twitter: "https://twitter.com/mikolajdobrucki",
-    github: "https://github.com/launch-ui/launch-ui",
-    email: "mailto:contact@mikolajdobrucki.com",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com/tanish-24-git/Happie.git",
   },
   pricing: {
-    pro: "https://launchui.lemonsqueezy.com/buy/b4798c68-c858-4c34-860b-069b5a0d6c4e",
-    team: "https://launchui.lemonsqueezy.com/buy/130d8cfe-e123-464b-9f67-c74c5fedfb45",
+    pro: "#",
+    team: "#",
   },
   stats: {
-    figma: 8839,
-    github: 1829,
-    cli: 18462,
-    total: "29.1k+",
-    updated: "13 Mar 2026",
-    sections: 74,
-    illustrations: 23,
-    animations: 15,
-    templates: 7,
+    figma: 0,
+    github: 0,
+    cli: 0,
+    total: "0+",
+    updated: "30 Mar 2026",
+    sections: 0,
+    illustrations: 0,
+    animations: 0,
+    templates: 0,
   },
 };
 

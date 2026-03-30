@@ -34,12 +34,11 @@ interface FooterProps {
 
 export default function FooterSection({
   logo = <LaunchUI />,
-  name = "Launch UI",
+  name = "Happie",
   columns = [
     {
       title: "Product",
       links: [
-        { text: "Changelog", href: siteConfig.url },
         { text: "Documentation", href: siteConfig.url },
       ],
     },
@@ -47,24 +46,19 @@ export default function FooterSection({
       title: "Company",
       links: [
         { text: "About", href: siteConfig.url },
-        { text: "Careers", href: siteConfig.url },
         { text: "Blog", href: siteConfig.url },
       ],
     },
     {
       title: "Contact",
       links: [
-        { text: "Discord", href: siteConfig.url },
-        { text: "Twitter", href: siteConfig.url },
+        { text: "LinkedIn", href: siteConfig.links.linkedin },
         { text: "Github", href: siteConfig.links.github },
       ],
     },
   ],
-  copyright = "© 2025 Mikołaj Dobrucki. All rights reserved",
-  policies = [
-    { text: "Privacy Policy", href: siteConfig.url },
-    { text: "Terms of Service", href: siteConfig.url },
-  ],
+  copyright = "© 2026 Happie. All rights reserved",
+  policies = [],
   showModeToggle = true,
   className,
 }: FooterProps) {
@@ -94,16 +88,13 @@ export default function FooterSection({
               </FooterColumn>
             ))}
           </FooterContent>
-          <FooterBottom>
+          <FooterBottom className="flex flex-col items-center justify-center gap-4 text-center sm:flex-col sm:items-center sm:justify-center">
             <div>{copyright}</div>
-            <div className="flex items-center gap-4">
-              {policies.map((policy, index) => (
-                <a key={index} href={policy.href}>
-                  {policy.text}
-                </a>
-              ))}
-              {showModeToggle && <ModeToggle />}
-            </div>
+            {showModeToggle && (
+              <div className="flex items-center gap-4">
+                <ModeToggle />
+              </div>
+            )}
           </FooterBottom>
         </Footer>
       </div>
