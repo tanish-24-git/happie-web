@@ -7,7 +7,6 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -16,6 +15,7 @@ import {
 } from "../../ui/navbar";
 import Navigation from "../../ui/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
+import { ModeToggle } from "../../ui/mode-toggle";
 
 interface NavbarLink {
   text: string;
@@ -43,7 +43,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
+  logo = <img src="/logo.png" alt="Happie Logo" className="size-12 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all group-hover:scale-110" />,
   name = "Happie",
   homeUrl = siteConfig.url,
   mobileLinks = [
@@ -69,10 +69,9 @@ export default function Navbar({
   className,
 }: NavbarProps) {
   return (
-    <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
-      <div className="fade-bottom bg-background/15 absolute left-0 h-24 w-full backdrop-blur-lg"></div>
-      <div className="max-w-container relative mx-auto">
-        <NavbarComponent>
+    <header className={cn("sticky top-2 z-50 w-full px-4", className)}>
+      <div className="max-w-container mx-auto">
+        <NavbarComponent className="bg-background/20 backdrop-blur-xl border border-white/5 dark:border-white/10 rounded-2xl h-16 shadow-[0_8px_32px_rgba(0,0,0,0.2)] px-4">
           <NavbarLeft>
             <a
               href={homeUrl}
@@ -104,6 +103,7 @@ export default function Navbar({
                   key={index}
                   variant={action.variant || "default"}
                   asChild
+                  className={cn(action.variant === "default" && "bg-white text-black hover:bg-white/90")}
                 >
                   <a href={action.href}>
                     {action.icon}
@@ -121,6 +121,7 @@ export default function Navbar({
                 </a>
               ),
             )}
+            <ModeToggle />
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -138,6 +139,7 @@ export default function Navbar({
                     href={homeUrl}
                     className="flex items-center gap-2 text-xl font-bold"
                   >
+                    {logo}
                     <span>{name}</span>
                   </a>
                   {mobileLinks.map((link, index) => (

@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../logos/launch-ui";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -98,7 +98,7 @@ export default function Navigation({
         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
   ],
-  logo = <LaunchUI />,
+  logo = <img src="/logo.png" alt="Happie Logo" className="size-12 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all group-hover:scale-110" />,
   logoTitle = "Happie",
   logoDescription = "Hardware-Aware Performance Inference Engine. Local-first AI inference platform with hardware-aware optimization.",
   logoHref = siteConfig.url,

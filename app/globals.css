@@ -217,6 +217,30 @@
   --shadow-strong: #00000088;
 }
 
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .glass {
+    @apply bg-background/5 backdrop-blur-md border border-white/10 hover:bg-white/5 transition-all;
+  }
+  .bg-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .line-y {
+    @apply border-x border-border/10;
+  }
+  .line-b {
+    @apply border-b border-border/10;
+  }
+  .line-dashed {
+    @apply border-dashed;
+  }
+  .max-w-container {
+    @apply max-w-(--spacing-container);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -224,4 +248,30 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 3rem)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 20s) linear infinite;
+}
+
+@keyframes pulse-hover {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-hover {
+  animation: pulse-hover 3s ease-in-out infinite;
 }

@@ -9,21 +9,7 @@ export const siteConfig = {
   links: {
     linkedin: "https://linkedin.com",
     github: "https://github.com/tanish-24-git/Happie.git",
-  },
-  pricing: {
-    pro: "#",
-    team: "#",
-  },
-  stats: {
-    figma: 0,
-    github: 0,
-    cli: 0,
-    total: "0+",
-    updated: "30 Mar 2026",
-    sections: 0,
-    illustrations: 0,
-    animations: 0,
-    templates: 0,
+    email: "mailto:hello@happie.ai",
   },
 };
 

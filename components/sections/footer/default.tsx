@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
+
 import {
   Footer,
   FooterBottom,
@@ -33,42 +33,38 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  logo = <LaunchUI />,
+  logo = <img src="/logo.png" alt="Happie Logo" className="size-12 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all group-hover:scale-110" />,
   name = "Happie",
   columns = [
     {
-      title: "Product",
+      title: "Resources",
       links: [
         { text: "Documentation", href: siteConfig.url },
+        { text: "Getting started", href: siteConfig.getStartedUrl },
       ],
     },
     {
-      title: "Company",
+      title: "Social",
       links: [
-        { text: "About", href: siteConfig.url },
-        { text: "Blog", href: siteConfig.url },
-      ],
-    },
-    {
-      title: "Contact",
-      links: [
-        { text: "LinkedIn", href: siteConfig.links.linkedin },
+        { text: "Email", href: siteConfig.links.email },
+        { text: "Twitter", href: "https://twitter.com" },
         { text: "Github", href: siteConfig.links.github },
+        { text: "LinkedIn", href: siteConfig.links.linkedin },
       ],
     },
   ],
   copyright = "© 2026 Happie. All rights reserved",
   policies = [],
-  showModeToggle = true,
+  showModeToggle = false,
   className,
 }: FooterProps) {
   return (
-    <footer className={cn("bg-background w-full px-4", className)}>
+    <footer className={cn("bg-background w-full px-4 border-t border-border/40 dark:border-border/10", className)}>
       <div className="max-w-container mx-auto">
         <Footer>
           <FooterContent>
             <FooterColumn className="col-span-2 sm:col-span-3 md:col-span-1">
-              <div className="flex items-center gap-2">
+              <div className="group flex items-center gap-2 cursor-pointer transition-colors duration-300">
                 {logo}
                 <h3 className="text-xl font-bold">{name}</h3>
               </div>
