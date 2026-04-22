@@ -14,6 +14,7 @@ interface CTAButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
+  download?: string;
 }
 
 interface CTAProps {
@@ -25,6 +26,12 @@ interface CTAProps {
 export default function CTA({
   title = "Start building",
   buttons = [
+    {
+      href: "/HAPIE-Desktop-Setup.exe",
+      text: "Download",
+      variant: "outline",
+      download: "HAPIE-Desktop-Setup.exe",
+    },
     {
       href: siteConfig.getStartedUrl,
       text: "Get Started",
@@ -54,7 +61,7 @@ export default function CTA({
                 asChild
                 className="h-12 px-10 text-base font-semibold bg-white text-black hover:bg-white/90 shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300"
               >
-                <a href={button.href}>
+                <a href={button.href} download={button.download}>
                   {button.icon}
                   {button.text}
                   {button.iconRight}

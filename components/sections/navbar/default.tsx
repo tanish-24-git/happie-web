@@ -29,6 +29,7 @@ interface NavbarActionProps {
   icon?: ReactNode;
   iconRight?: ReactNode;
   isButton?: boolean;
+  download?: string;
 }
 
 interface NavbarProps {
@@ -52,10 +53,11 @@ export default function Navbar({
   ],
   actions = [
     {
-      text: "Download (Coming Soon)",
-      href: "#",
+      text: "Download",
+      href: "/HAPIE-Desktop-Setup.exe",
       isButton: true,
       variant: "outline",
+      download: "HAPIE-Desktop-Setup.exe",
     },
     {
       text: "Get Started",
@@ -105,7 +107,7 @@ export default function Navbar({
                   asChild
                   className={cn(action.variant === "default" && "bg-white text-black hover:bg-white/90")}
                 >
-                  <a href={action.href}>
+                  <a href={action.href} download={action.download}>
                     {action.icon}
                     {action.text}
                     {action.iconRight}

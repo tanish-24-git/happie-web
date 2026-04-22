@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Happie",
   url: "https://github.com/tanish-24-git/Happie",
+  downloadUrl: "/HAPIE-Desktop-Setup.exe",
   getStartedUrl:
     "https://github.com/tanish-24-git/Happie.git",
   ogImage: "https://github.com/tanish-24-git/Happie/og.jpg",
