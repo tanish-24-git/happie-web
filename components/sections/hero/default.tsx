@@ -20,6 +20,7 @@ interface HeroButtonProps {
   variant?: VariantProps<typeof buttonVariants>["variant"];
   icon?: ReactNode;
   iconRight?: ReactNode;
+  download?: string;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
@@ -33,8 +34,8 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Happie - AI Inference Engine",
-  description = "Local-first AI inference platform with hardware-aware optimization. Run models dynamically across your CPU and GPU.",
+  title = "HAPIE - The Next-Gen AI Inference Engine",
+  description = "A premium, local-first platform for lightning-fast AI inference. Hardware-aware optimization that dynamically scales across your local CPU and GPU for maximum performance.",
   mockup = (
     <div className="group/mockup relative w-full flex flex-col items-center justify-center mt-8 sm:mt-12">
       {/* Background Glow (Light Bulb Effect) */}
@@ -49,7 +50,7 @@ export default function Hero({
             <div className="relative overflow-hidden rounded-xl border border-border/50 dark:border-border/10 bg-background/50 backdrop-blur-sm shadow-2xl transition-all duration-500 group-hover/mockup:shadow-[0_0_50px_rgba(var(--brand),0.2)]">
               <img 
                 src="/dashboard-dark.png" 
-                alt="Happie Dashboard" 
+                alt="HAPIE Dashboard" 
                 className="w-full h-auto block"
                 style={{
                   maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
@@ -65,19 +66,21 @@ export default function Hero({
   badge = (
     <div className="animate-appear inline-flex items-center rounded-full border border-border/100 dark:border-border/20 text-xs font-semibold transition-colors gap-2 text-foreground px-3 py-1 bg-muted/50 backdrop-blur-sm">
       <span className="text-muted-foreground mr-2 font-medium">
-        Happie AI Inference is out!
+        HAPIE Desktop v1.0 is now live!
       </span>
       <a href={siteConfig.getStartedUrl} className="flex items-center gap-1 font-bold hover:underline">
-        Read more
+        Get Started
         <ArrowRightIcon className="size-3" />
       </a>
     </div>
   ),
   buttons = [
     {
-      href: siteConfig.getStartedUrl,
-      text: "Get Started",
+      href: "/HAPIE-Desktop-Setup.exe",
+      text: "Download for Windows",
       variant: "default",
+      icon: <Download className="mr-2 size-4" />,
+      download: "HAPIE-Desktop-Setup.exe",
     },
     {
       href: siteConfig.links.github,
@@ -117,7 +120,7 @@ export default function Hero({
                     button.variant === "default" ? "bg-white text-black hover:bg-white/90 shadow-[0_0_20px_rgba(255,255,255,0.3)]" : "glass"
                   )}
                 >
-                  <a href={button.href} onClick={button.onClick}>
+                  <a href={button.href} onClick={button.onClick} download={button.download}>
                     {button.icon}
                     {button.text}
                     {button.iconRight}
